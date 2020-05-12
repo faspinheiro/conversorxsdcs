@@ -59,6 +59,7 @@
             // 
             this.textSaida.Location = new System.Drawing.Point(202, 370);
             this.textSaida.Name = "textSaida";
+            this.textSaida.ReadOnly = true;
             this.textSaida.Size = new System.Drawing.Size(207, 20);
             this.textSaida.TabIndex = 3;
             // 
@@ -85,6 +86,7 @@
             // 
             this.textBoxTotalArquivos.Location = new System.Drawing.Point(134, 325);
             this.textBoxTotalArquivos.Name = "textBoxTotalArquivos";
+            this.textBoxTotalArquivos.ReadOnly = true;
             this.textBoxTotalArquivos.Size = new System.Drawing.Size(45, 20);
             this.textBoxTotalArquivos.TabIndex = 6;
             // 
@@ -112,6 +114,7 @@
             // 
             this.textBoxResultado.Location = new System.Drawing.Point(202, 325);
             this.textBoxResultado.Name = "textBoxResultado";
+            this.textBoxResultado.ReadOnly = true;
             this.textBoxResultado.Size = new System.Drawing.Size(207, 20);
             this.textBoxResultado.TabIndex = 9;
             this.textBoxResultado.Visible = false;

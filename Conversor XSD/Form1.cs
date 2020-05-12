@@ -7,8 +7,8 @@ namespace Conversor_XSD
 {
     public partial class FormConversor : Form
     {
-        private List<String> arquivosSelecionados = new List<String>();
-        private String diretorioSaida = "";
+        private List<String> arquivosSelecionados = new List<String>();        
+        private String diretorioSaida = "X";
         private String caminhoExecXSD = @"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.7.2 Tools\xsd.exe";
 
         public FormConversor()
@@ -66,18 +66,26 @@ namespace Conversor_XSD
 
             String argumento = "";
 
-            foreach(String nome in arquivosSelecionados)
+            if(arquivosSelecionados.Count < 1 || diretorioSaida == "X")
             {
-                argumento += "\"" + nome + "\" ";
+                MessageBox.Show("Você deve escolher pelo menos um arquivo XSD e o diretório para salvar as classes.");
             }
+            else
+            {
+                foreach (String nome in arquivosSelecionados)
+                {
+                    argumento += "\"" + nome + "\" ";
+                }
 
+                argumento += "/c /l:CS /o:\"" + diretorioSaida + "\"";
+                argumento += "";
 
-            argumento += "/c /l:CS /o:\"" + diretorioSaida + "\"";
-            argumento += "";
-
-            ProcessStartInfo infoProcesso = new ProcessStartInfo(caminhoExecXSD,argumento);
-            Process processo = Process.Start(infoProcesso);
-            textBoxResultado.Text = processo.ExitCode.ToString();
+                ProcessStartInfo infoProcesso = new ProcessStartInfo(caminhoExecXSD, argumento);
+                Process processo = Process.Start(infoProcesso);
+                textBoxResultado.Text = processo.ExitCode.ToString();
+                textBoxResultado.Visible = true;
+            }
+            
         }
 
     }
